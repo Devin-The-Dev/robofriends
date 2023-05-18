@@ -1,20 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
-import Hello from './Hello';
+import Card from './Card';
 import reportWebVitals from './reportWebVitals';
 import 'tachyons';
+// Since I'm not using 'export default', like in './Card', I need to destructure it (add curly brakets)
+import { robots } from './robots';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <h1>An intro to React</h1>
-    {/* Lets create our first component */}
-    {/* This 'greeting attribute is what React calls a prop (short for 'property') */}
-    <Hello greeting={'Hello' + 'React Ninja'}/>
-
-    <App />
+    <div>
+      {/* Lets create a component */}
+      {/* These 'attributes' are what React calls a prop (short for 'property') */}
+      <Card id={robots[0].id} name={robots[0].name} email={robots[0].email}/>
+      {/* Now lets repeat that a couple more times */}
+      <Card id={robots[1].id} name={robots[1].name} email={robots[1].email}/>
+      <Card id={robots[2].id} name={robots[2].name} email={robots[2].email}/>
+    </div>
+    
   </React.StrictMode>
 );
 
