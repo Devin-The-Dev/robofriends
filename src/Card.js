@@ -13,7 +13,6 @@ class Card extends Component {
         return (
             // This is the 'text-center, background, display (inline block), border, padding, margin, grow in hover, border-width, shadow'
             <div className='tc bg-light-green dib br3 pa3 ma2 grow bw2 shadow-5'>
-                <h1>RoboFriends</h1>
                 {/* We're going to use the Robohash API to generate robot photos */}
                 <img alt='robots' src={`https://robohash.org/${id}?200x200`} />
 
