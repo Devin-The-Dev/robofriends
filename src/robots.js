@@ -1,3 +1,4 @@
+// Let's get fake users instead from JSONPlaceholder API 
 export const robots = [
     {
         id: 1,
