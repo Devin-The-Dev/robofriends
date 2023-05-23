@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 // Add created components
-import CardList from './CardList';
-import SearchBox from './SearchBox';
-import Scroll from './Scroll.js';
+import CardList from '../components/CardList';
+import SearchBox from '../components/SearchBox';
+import Scroll from '../components/Scroll.js';
 // Import the new font
 import './App.css';
 
@@ -29,17 +29,21 @@ class App extends Component {
     onSearchChange = (event) => {
         this.setState({ searchfield: event.target.value });
     }
-
+    
+    // This is used to, well, render the information 
     render(){
-        const filteredRobots = this.state.robots.filter(robot => {
-            return robot.name.toLowerCase().includes(this.state.searchfield.toLowerCase());
+        // Destructure to make our code cleaner
+        const { robots, searchfield } = this.state;
+
+        const filteredRobots = robots.filter(robot => {
+            return robot.name.toLowerCase().includes(searchfield.toLowerCase());
         })
 
         // This in case JSONPlaceholder API is getting a lot of traffic
-        if (this.state.robots.length === 0 ) {
-            return <h1>Loading ...</h1>;
-        } else {
-            return(
+        // We only want the 'loading' to appear iff the length is 0. Well, since 0 also means false, let's just make 0 the true statement
+        return !robots.length ?
+            <h1>Loading ...</h1> :
+            (
                 <React.StrictMode>
                     <div className='tc'>
                         <h1 className='f1'>RoboFriends</h1>
@@ -50,7 +54,6 @@ class App extends Component {
                     </div>
                 </React.StrictMode>
             )
-        }
     }
 
     // When the page loads it'll run constructor, render, componentDidMount, then render again. This according to React's documentation
