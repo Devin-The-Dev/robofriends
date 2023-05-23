@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+// Add created components
 import CardList from './CardList';
 import SearchBox from './SearchBox';
-// Since I'm not using 'export default', like in './Card', I need to destructure it (add curly brakets)
-// import { robots } from './robots';
+import Scroll from './Scroll.js';
 // Import the new font
 import './App.css';
 
@@ -25,6 +25,7 @@ class App extends Component {
             .then(users => this.setState({ robots: users }));
     }
 
+    // This collects input from the user
     onSearchChange = (event) => {
         this.setState({ searchfield: event.target.value });
     }
@@ -43,7 +44,9 @@ class App extends Component {
                     <div className='tc'>
                         <h1 className='f1'>RoboFriends</h1>
                         <SearchBox searchChange={this.onSearchChange}/>
-                        <CardList robots={filteredRobots} />
+                        <Scroll>
+                            <CardList robots={filteredRobots} />
+                        </Scroll>
                     </div>
                 </React.StrictMode>
             )
