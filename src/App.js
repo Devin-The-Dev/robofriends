@@ -3,6 +3,8 @@ import CardList from './CardList';
 import SearchBox from './SearchBox';
 // Since I'm not using 'export default', like in './Card', I need to destructure it (add curly brakets)
 import { robots } from './robots';
+// Import the new font
+import './App.css';
 
 class App extends Component {
    
@@ -28,7 +30,7 @@ class App extends Component {
         return(
             <React.StrictMode>
                 <div className='tc'>
-                    <h1>RoboFriends</h1>
+                    <h1 className='f1'>RoboFriends</h1>
                     <SearchBox searchChange={this.onSearchChange}/>
                     <CardList robots={filteredRobots} />
                 </div>
