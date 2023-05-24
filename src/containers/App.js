@@ -14,14 +14,14 @@ function App() {
     // This seems to be much like a shorthand way for fields, getters, and setters
     const [robots, setRobots] = useState([]);
     const [searchfield, setSearchfield] = useState('');
-    const [count, setCount] = useState(0);
+    // const [count, setCount] = useState(0);
 
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/users')
             .then(response => response.json())
             .then(users => setRobots(users));
         // There needs to be an array (even empty) in order to prevent uncessassary fetchings
-    }, [count]) //Only run if count changes
+    }, [/*count*/]) //Only run if count changes
 
     // This collects input from the user
     const onSearchChange = (event) => {
@@ -40,7 +40,8 @@ function App() {
             <React.StrictMode>
                 <div className='tc'>
                     <h1 className='f1'>RoboFriends</h1>
-                    <button onClick={() =>  setCount(count + 1) }>Click Me!</button>
+                    <button>Click Me!</button>
+                    {/* <button onClick={() =>  setCount(count + 1) }>Click Me!</button> */}
                     <SearchBox searchChange={onSearchChange}/>
                     <Scroll>
                         <ErrorBoundary>
