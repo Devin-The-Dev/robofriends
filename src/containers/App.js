@@ -11,7 +11,7 @@ function App() {
     
     // We're going to create a hook
     // Let's have 'robots be our state, and setRobots to be out function to change the robots
-    // This seems to be much like a shorthand way for a getter and setter
+    // This seems to be much like a shorthand way for fields, getters, and setters
     const [robots, setRobots] = useState([]);
     const [searchfield, setSearchfield] = useState('');
     const [count, setCount] = useState(0);
